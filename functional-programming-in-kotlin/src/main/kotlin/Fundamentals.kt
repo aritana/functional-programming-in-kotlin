@@ -1,7 +1,7 @@
 import java.lang.NumberFormatException
 
 fun main() {
-    usingDeclarativeApproach()
+    exercise1_1()
 }
 
 /**
@@ -50,5 +50,13 @@ fun isValidNumber(str: String): Boolean =
  *  a List<String> within a given interval. The signature is:
  */
 fun exercise1_1(){
-
+    val interval = 2..5
+    val list = listOf<String>("1","2","4","5","9","20")
+    val result = sumInRange(list, interval)
+    println(result)
 }
+fun sumInRange(input: List<String>, range: IntRange): Int=
+    input.filter (::isValidNumber)
+        .map(String::toInt)
+        .filter { it in range}
+        .sum()
